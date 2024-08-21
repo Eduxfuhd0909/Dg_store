@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Abas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar .tablink {
+            background-color: #333;
+            border: none;
+            color: white;
+            padding: 14px 20px;
+            cursor: pointer;
+            float: left;
+        }
+
+        .navbar .tablink:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border-top: none;
+        }
+
+        .tabcontent h1 {
+            font-size: 24px;
+        }
+
+        .tabcontent p {
+            font-size: 16px;
+        }
+
+        .item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+
+        .item img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .item h2 {
+            font-size: 18px;
+        }
+
+        .item p {
+            font-size: 14px;
+        }
+
+        .item .price {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button class="tablink" onclick="openTab(event, 'home')">Início</button>
+        <button class="tablink" onclick="openTab(event, 'store')">Loja</button>
+    </div>
+
+    <div id="home" class="tabcontent">
+        <h1>Bem-vindo à nossa página inicial!</h1>
+        <p>Este é o conteúdo da aba Início.</p>
+    </div>
+
+    <div id="store" class="tabcontent">
+        <h1>Bem-vindo à nossa loja!</h1>
+        <p>Confira nossos itens relacionados ao Discord:</p>
+
+        <div class="item">
+            <img src="https://example.com/discord-item1.jpg" alt="Item 1">
+            <h2>Pacote de Emojis</h2>
+            <p>Adicione uma coleção de emojis exclusivos ao seu servidor.</p>
+            <p class="price">R$ 29,99</p>
+        </div>
+
+        <div class="item">
+            <img src="https://example.com/discord-item2.jpg" alt="Item 2">
+            <h2>Avatar Personalizado</h2>
+            <p>Um avatar personalizado para o seu perfil.</p>
+            <p class="price">R$ 19,99</p>
+        </div>
+
+        <div class="item">
+            <img src="https://example.com/discord-item3.jpg" alt="Item 3">
+            <h2>Server Boost</h2>
+            <p>Aumente a qualidade do seu servidor com um boost.</p>
+            <p class="price">R$ 49,99</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Ocultar todos os conteúdos das abas
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remover a classe "active" de todos os botões de abas
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostrar o conteúdo da aba selecionada e adicionar a classe "active" ao botão
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Mostrar a aba "home" por padrão
+        document.querySelector('.tablink').click();
+    </script>
+</body>
+</html>
